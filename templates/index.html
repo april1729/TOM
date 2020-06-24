@@ -1,0 +1,68 @@
+<!doctype html>
+<html>
+
+    <div align="center">
+      <h1 align="center"> Ultimate Tic Tac Toe</h1>
+      <p>Play ultimate tic tac toe again my AI, TOM.</p>
+               {% if draw %}
+            <div>
+                    <h1> Game Drawn</h1>
+            </div>
+         {% endif %}
+         {% if winnerFound %}
+            <div>
+                    <h1> WINNER is {{winner}}</h1>
+            </div>
+         {% endif %}
+
+         <div>
+         <table>
+             {% for ro in range(3) %}
+                <tr >
+                    {% for co in range(3) %}
+                        <td >
+                            {% if mainGame[ro][co]==1%}
+                              <IMG width=180px SRC="{{ url_for('static', filename='x.png') }}">
+                            {% elif mainGame[ro][co]==2%}
+                              <IMG width=180px SRC="{{ url_for('static', filename='o.png') }}">
+                            {% else %}
+                       <table>
+                                {% for ri in range(3) %}
+                                    <tr>
+                                        {% for ci in range(3) %}
+                                            <td>
+                                                {% if game[ro][co][ri][ci]==1 %}
+                              <IMG width=60px SRC="{{ url_for('static', filename='x.png') }}">
+                                                {% elif game[ro][co][ri][ci]==2 %}
+                              <IMG width=60px SRC="{{ url_for('static', filename='o.png') }}">
+                                                {% elif validMove[ro][co][ri][ci]%}
+                                                <a href="{{ url_for('play', ro=ro, co=co, ri=ri, ci=ci) }}">
+                                                <img width=60px SRC="{{ url_for('static', filename='valid.png') }}"
+                                    onmouseover="this.src='{{ url_for('static', filename='x.png') }}'"
+                                    onmouseout="this.src='{{ url_for('static', filename='valid.png') }}'"/></a>
+
+                                                  {% else %}
+
+                               <IMG width=60px SRC="{{ url_for('static', filename='blank.png') }}">
+
+                                                {% endif %}
+                                            </td>
+                                        {% endfor %}
+                                    </tr>
+                                {% endfor %}
+                            </table>
+                            {% endif %}
+
+                        </td>
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+         </table>
+
+
+         </div>
+      
+      </div>
+
+    </body>
+</html>

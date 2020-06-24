@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Tic Tac Toe</title>
+        <link rel="stylesheet" 
+        href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <style>
+            table {
+                border: 0;
+                border-collapse: collapse;
+            }
+            td {
+                border: 1px solid black;
+                width: 200px;
+                height: 70px;
+                font-size: 20px;
+                text-align: center;
+            }
+            td > a {
+                font-size: 30px;
+            }
+                    #ttttable{
+            border: 1px solid blue;
+            padding: 10px;
+            }
+
+            .vert {
+              border-left: 2px solid black;
+              border-right: 2px solid black;
+            }
+
+            .hori {
+              border-top: 2px solid black;
+              border-bottom: 2px solid black;
+            }
+
+
+        </style>
+    </head>
+    <body>
+        
+         <div>
+            <a href="{{url_for('reset')}}" class="btn btn-default">Reset Game</a>
+             
+         </div>
+
+         {% if draw %}
+            <div>
+                    <h1> Game Drawn</h1>
+            </div>
+         {% endif %}
+         {% if winnerFound %}
+            <div>
+                    <h1> WINNER is {{winner}}</h1>
+            </div>
+         {% endif %}
+         <div align="center">
+         <table class="">
+             {% for ro in range(3) %}
+                <tr>
+                    {% for co in range(3) %}
+                        <td>
+                            {% if mainGame[ro][co]==1%}
+                                X
+                            {% elif mainGame[ro][co]==2%}
+                                O
+                            {% else %}
+                            <table>
+                                {% for ri in range(3) %}
+                                    <tr>
+                                        {% for ci in range(3) %}
+                                            <td>
+                                                {% if game[ro][co][ri][ci]==1 %}
+                                                    X
+                                                {% elif game[ro][co][ri][ci]==2 %}
+                                                    O
+                                                {% elif validMove[ro][co][ri][ci]%}
+                                                    <a href="{{ url_for('play', ro=ro, co=co, ri=ri, ci=ci) }}"> {{turn}}</a>
+                                                {% endif %}
+                                            </td>
+                                        {% endfor %}
+                                    </tr>
+                                {% endfor %}
+                            </table>
+                            {% endif %}
+
+                        </td>
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+
+         </table>
+
+         </div>
+    </body>
+</html>
