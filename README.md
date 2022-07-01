@@ -9,11 +9,12 @@ Tictactics Optimizing Machine, or TOM, is an AI that simulates and (tries to) pl
 
 To run locally on a linux machine,
 
-'''
-$ cd <directory>
-$ export FLASK_APP application.py
-$ flask run
-'''
+```
+git clone https://github.com/april1729/TOM.git
+cd TOM
+export FLASK_APP application.py
+flask run
+```
 
 
 # License
