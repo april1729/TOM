@@ -3,7 +3,7 @@
 
 Tictactics is a game played on a 3x3 grid of 3x3 grids.  Each 3x3 grid is a game of tic-tac-toe.  The first person is free to move anywhere on the board, after that the player must move on the tic-tac-toe board that corresponds to the place her opponent chose on their last move move.  <a rel="Here" href="http://mathwithbaddrawings.com/ultimate-tic-tac-toe-original-post/"> Here <a> is a better explination.
 
-Tictactics Optimizing Machine, or TOM, is an AI that simulates and (tries to) play the game optimally.  It uses minimaxing to choose its moves (https://en.wikipedia.org/wiki/Minimax).  The game is played in a web browser using Flask.  You can play it at (tom.aprilsagan.net)[tom.aprilsagan.net].
+Tictactics Optimizing Machine, or TOM, is an AI that simulates and (tries to) play the game optimally.  It uses the [minimax](https://en.wikipedia.org/wiki/Minimax) to choose its moves .  The game is played in a web browser using Flask, and you can play it at (https://tom.aprilsagan.net).
 
 # Running the server locally 
 
